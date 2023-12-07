@@ -66,27 +66,6 @@ const { donnees, donnees2 } = require("./donnees");
 
 Ne pas confondre le système de modules CommonJS utilisé par NodeJS et le système ES6 utilisé dans les navigateurs. Nodejs lèvera une erreur si on utilise les mots-clés `import` et `export`. Il est possible désormais d'utiliser le système ES6 dans NodeJS avec le flag `--experimental-modules`, mais ce n'est pas recommandé pour le moment.
 
-### Exporter un module avec ES6 (navigateur)
-
-Pour exporter un module avec ES6, on utilise le mot-clé `export`.
-
-```javascript
-const donnees = {
-    nom: "Jean",
-    age: 25,
-};
-
-export default donnees;
-```
-
-### Importer un module avec ES6 (navigateur)
-
-Pour importer un module avec ES6, on utilise le mot-clé `import`.
-
-```javascript
-import express from "express";
-```
-
 ### Documentation
 
 -   [https://nodejs.org/api/modules.html](https://nodejs.org/api/modules.html)
