@@ -26,9 +26,9 @@ app.use(express.static(path.join(__dirname, "public")));
 // Toutes les routes non statiques doivent être définies après les middlewares
 app.get("/donnees", (req, res) => {
     const donneesTest = require("./data/donneesTest.js");
-    logger.info(donneesTest);
+    // logger.info(donneesTest);
 
-    res.setHeader("Content-Type", "application/json");
+    // res.setHeader("Content-Type", "application/json"); // Pas nécessaire car express le fait automatiquement avec la méthode res.json()
     res.statusCode = 200;
     res.json(donneesTest);
 });
