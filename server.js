@@ -38,12 +38,15 @@ app.get("/donnees/:id", (req, res) => {
     const donneesTest = require("./data/donneesTest.js");
     const donnees = donneesTest.find((element) => element.id == req.params.id);
 
+    // Si la donnée est trouvée, on l'affiche en JSON
     if (donnees) {
         res.setHeader("Content-Type", "application/json");
         res.statusCode = 200;
         res.json(donnees);
     } else {
-        res.setHeader("Content-Type", "text/html");
+        // Sinon, on affiche un message d'erreur.
+        // Le code 404 est utilisé pour indiquer que la donnée n'a pas été trouvée
+        res.setHeader("Content-Type", "application/json");
         res.statusCode = 404;
         res.json({ message: "Donnée non trouvée" });
     }
