@@ -50,17 +50,6 @@ Pour ajouter des données à une base de données Firestore, il faut créer une 
 
 2. Pour ajouter un document à la collection, il faut cliquer sur le bouton "Add document" et ajouter les propriétés du document. Les propriétés peuvent être de différents types.
 
-Les types de données supportés par Firestore sont:
-
--   String
--   Number
--   Boolean
--   Array
--   Object
--   Date
--   Timestamp
--   Reference (pour faire référence à un autre document)
-
 ![Ajout d'un document](./images/Firestore3.png)
 
 ## Connecter une application à une base de données Firestore
@@ -75,57 +64,6 @@ Pour connecter une application à une base de données Firestore, il faut ajoute
 
 **_Attention, le code contient les accès à la base de données. Il ne faut pas le partager sur GitHub. Vous devrez ajouter les accès au fichier `.env` et les utiliser dans le fichier `server.js` avec process.env.la-clé._**
 
-## Récupérer des données d'une base de données Firestore et Express
+![SDK de Firebase](./images/Firestore5.png)
 
-Pour récupérer des données d'une base de données Firestore, il faut utiliser la méthode `get()` de l'objet `db` qui est retourné par la méthode `firebase.firestore()`.
-
-La méthode `get()` retourne une promesse qui contient un objet `QuerySnapshot`. Cet objet contient un tableau `docs` qui contient les documents de la collection.
-
-https://firebase.google.com/docs/firestore/quickstart?hl=fr#node.js
-https://console.firebase.google.com/u/0/project/test-node-mlg/settings/serviceaccounts/adminsdk
-
-## Pour récupérer un seul document d'une base de données Firestore
-
-Pour récupérer un seul document d'une base de données Firestore, il faut utiliser la méthode `doc()` de l'objet `db` qui est retourné par la méthode `firebase.firestore()`.
-
-La méthode `doc()` prend en paramètre l'id du document à récupérer. Elle retourne un objet `DocumentSnapshot` qui contient le document.
-
-Il est possible de récupérer les données du document avec la méthode `data()` de l'objet `DocumentSnapshot`.
-
-Ex:
-
-```js
-router.get("/:id", async (req, res) => {
-    try {
-        const id = req.params.id;
-        const doc = await db.collection("users").doc(id).get();
-        const user = doc.data();
-        res.json(user);
-    } catch (err) {
-        res.status(500).send(err);
-    }
-});
-```
-
-Pour filtrer les documents d'une collection, il faut utiliser la méthode `where()` de l'objet `db` qui est retourné par la méthode `firebase.firestore()`.
-
-La méthode `where()` prend en paramètre le nom de la propriété à filtrer, l'opérateur de comparaison et la valeur à comparer. Elle retourne un objet `QuerySnapshot` qui contient les documents qui respectent le filtre.
-
-Ex:
-
-```js
-router.get("/age/:age", async (req, res) => {
-    try {
-        const age = parseInt(req.params.age);
-        const docs = await db.collection("users").where("age", "==", age).get();
-        const users = [];
-        docs.forEach((doc) => {
-            const user = doc.data();
-            users.push(user);
-        });
-        res.json(users);
-    } catch (err) {
-        res.status(500).send(err);
-    }
-});
-```
+![SDK de Firebase](./images/Firestore6.png)
