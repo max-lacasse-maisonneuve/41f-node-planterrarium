@@ -1,121 +1,21 @@
 const donneesTest = [
     {
-        id: 1,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
+        nom: "Opuntia subulata",
+        description:
+            "Opuntia subulata est une espèce de plantes de la famille des Cactaceae, originaire d'Amérique du Sud.",
+        categorie: ["Cactus", "Plantes tropicales"],
+        prix: 12.99,
+        image: "products-original_9403.jpg",
+        achatEnLigne: true,
     },
-
     {
-        id: 2,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 3,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 4,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 5,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 6,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 7,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 8,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 9,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 10,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 11,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 12,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 13,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 14,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 15,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 16,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
-    },
-
-    {
-        id: 17,
-        nom: "Test",
-        prenom: "Test",
-        email: "",
+        nom: "Opuntia gosseliniana",
+        description:
+            "Opuntia gosseliniana est une espèce de plantes de la famille des Cactaceae, originaire d'Amérique du Sud.",
+        categorie: ["Cactus", "Plantes tropicales"],
+        prix: 13.99,
+        image: "products-original_9401.jpg",
+        achatEnLigne: true,
     },
 ];
 module.exports = donneesTest;
