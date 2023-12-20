@@ -94,7 +94,8 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     try {
         const id = req.params.id;
-        await db.collection("users").doc(id).delete();
+        const result = await db.collection("plantes").doc(id).delete();
+        console.log(result);
         res.json({ message: `Le document avec l'id ${id} a été supprimé` });
     } catch (err) {
         res.status(500).send(err);
