@@ -231,8 +231,8 @@ router.put("users/:id", async (req, res) => {
     try {
         const id = req.params.id;
         const user = req.body;
-        await db.collection("users").doc(id).update(user);
-        res.json({ message: `Le document avec l'id ${id} a été modifié` });
+        const modification = await db.collection("users").doc(id).update(user);
+        res.json({ message: `Le document avec l'id ${id} a été modifié`, document: modification });
     } catch (err) {
         res.status(500).send(err);
     }

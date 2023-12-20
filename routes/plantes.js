@@ -44,4 +44,26 @@ router.post("/initialize", async (req, res) => {
     res.json({ message: "Données initialisées" });
 });
 
+router.post("/", async (req, res) => {
+    try {
+        const plante = req.body;
+        const doc = await db.collection("plantes").add(plante);
+        plante.id = doc.id;
+        res.json(plante);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+router.put("/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const plante = req.body;
+        const modification = await db.collection("plantes").doc(id).update(plante);
+        res.json(modification);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
 module.exports = router;
