@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
         const plantes = [];
 
         plantesRef.forEach((doc) => {
-            plantes.push(doc.data());
+            plantes.push({ id: doc.id, ...doc.data() });
         });
 
         res.statusCode = 200;
@@ -62,10 +62,12 @@ router.post("/initialize", async (req, res) => {
 router.post("/", async (req, res) => {
     try {
         const plante = req.body;
+        console.log(plante);
         const doc = await db.collection("plantes").add(plante);
         plante.id = doc.id;
         res.json(plante);
     } catch (err) {
+        console.log(err);
         res.status(500).send(err);
     }
 });

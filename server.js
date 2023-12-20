@@ -9,6 +9,8 @@ require("dotenv").config();
 // ===== INITIALISATION DU SERVEUR
 const app = express();
 const port = process.env.port || 5000;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // ===== MOTEUR DE GABARIT
 app.set("views", path.join(__dirname, "views"));
