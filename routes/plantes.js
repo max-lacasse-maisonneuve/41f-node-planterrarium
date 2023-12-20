@@ -5,8 +5,6 @@ const db = require("../config/db.js");
 /**
  * Cette route permet de récupérer la liste des plantes
  * @route GET /plantes
- * @group Plantes - Opérations sur les plantes
- * @returns {Array.<Plante>} 200 - La liste des plantes
  */
 router.get("/", async (req, res) => {
     try {
@@ -26,13 +24,26 @@ router.get("/", async (req, res) => {
     }
 });
 
+/**
+ * Cette route permet de récupérer une plante
+ * @route GET /plantes/{id}
+ */
 router.get("/:id", async (req, res) => {
-    const plantesRef = await db.collection("films").doc(req.params.id).get();
+    try {
+        const id = req.params.id;
+        const plantesRef = await db.collection("films").doc(id).get();
 
-    res.statusCode = 200;
-    res.json(plantesRef.data());
+        res.statusCode = 200;
+        res.json(plantesRef.data());
+    } catch (err) {
+        res.status(500).send(err);
+    }
 });
 
+/**
+ * Cette route permet d'initialiser la base de données avec des données de test
+ * @route POST /plantes/initialize
+ */
 router.post("/initialize", async (req, res) => {
     const donneesTest = require("../data/donneesTest.js");
 
@@ -44,6 +55,10 @@ router.post("/initialize", async (req, res) => {
     res.json({ message: "Données initialisées" });
 });
 
+/**
+ * Cette route permet de créer une plante
+ * @route POST /plantes
+ */
 router.post("/", async (req, res) => {
     try {
         const plante = req.body;
@@ -55,6 +70,10 @@ router.post("/", async (req, res) => {
     }
 });
 
+/**
+ * Cette route permet de modifier une plante
+ * @route PUT /plantes/{id}
+ */
 router.put("/:id", async (req, res) => {
     try {
         const id = req.params.id;
@@ -66,6 +85,10 @@ router.put("/:id", async (req, res) => {
     }
 });
 
+/**
+ * Cette route permet de supprimer une plante
+ * @route DELETE /plantes/{id}
+ */
 router.delete("/:id", async (req, res) => {
     try {
         const id = req.params.id;
