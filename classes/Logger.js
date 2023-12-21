@@ -9,7 +9,7 @@ class Logger {
         if (!fs.existsSync(this.folderPath)) {
             fs.mkdir(this.folderPath, {}, (err) => {
                 if (err) {
-                    console.log(colors.red("Dossier existe"));
+                    console.log("Dossier existe");
                 }
 
                 this.info("Dossier logs créé");
