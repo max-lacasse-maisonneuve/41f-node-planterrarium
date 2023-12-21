@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // ===== ROUTES
 // Toutes les routes non statiques doivent être définies après les middlewares
 app.use("/plantes", require("./routes/plantes.js"));
+app.use("/utilisateurs", require("./routes/utilisateurs.js"));
 
 // ===== PAGE 404
 // Cette route doit être définie en dernier pour que les autres routes soient testées en premier

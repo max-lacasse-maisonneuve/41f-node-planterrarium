@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../config/db.js");
+const auth = require("../middlewares/auth.js");
 
 /**
  * Cette route permet de récupérer la liste des plantes
  * @route GET /plantes
  */
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
     try {
         const { orderBy = "nom", orderDirection = "asc", limit = 10 } = req.query;
         const plantesRef = await db.collection("plantes").orderBy(orderBy, orderDirection).limit(+limit).get();
