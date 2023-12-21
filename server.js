@@ -20,7 +20,7 @@ const server = http.createServer((request, response) => {
         response.statusCode = 200;
 
         //On envoie la réponse
-        response.send(file);
+        response.end(file);
     } else {
         // Page par défaut si la requête n'existe pas
         const file = fs.readFileSync("./public/404.html", "utf8");
