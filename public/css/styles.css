@@ -1,5 +1,65 @@
+@import url("./reset.css");
+
 body {
-    background-color: darkolivegreen;
-    color: bisque;
+    background-color: rgb(250, 255, 241);
+    color: rgb(50, 40, 28);
     font-family: Arial, Helvetica, sans-serif;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: rgb(91, 75, 57);
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-block: 1rem;
+}
+
+h5 {
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+h6 {
+    font-size: 0.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+p {
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgb(50, 40, 28);
+}
+
+a {
+    margin-bottom: 0.5rem;
+    color: rgb(50, 40, 28);
+}
+
+a:visited {
+    color: rgb(50, 40, 28);
 }

@@ -1,10 +1,6 @@
 const donneesTest = [
     {
-        courriel: "mlacassegermain5@cmaisonneuve.qc.ca",
-        mdp: "12345",
-    },
-    {
-        courriel: "mlacassegermain6@cmaisonneuve.qc.ca",
+        courriel: "admin@email.com",
         mdp: "12345",
     },
 ];

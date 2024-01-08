@@ -9,16 +9,94 @@
     </head>
     <body>
         <section>
-            <h1>API Planterrarium</h1>
+            <h1>API Films</h1>
             <h2>Documentation</h2>
-            Cette API permet d'afficher, d'ajouter, de modifier et de supprimer des plantes de la base de données. Les
+            Cette API permet d'afficher, d'ajouter, de modifier et de supprimer des films de la base de données. Les
             routes sont accessibles à partir de l'url suivante :
             <a href="https://41f-node-api.cyclic.app/">https://41f-node-api.cyclic.app/</a>
         </section>
         <section>
             <h2>Routes</h2>
-            <h3>Récupérer la liste des plantes</h3>
-            <p><a href="https://41f-node-api.cyclic.app/plantes">https://41f-node-api.cyclic.app/plantes</a></p>
+            <h3>Récupérer la liste des films</h3>
+            <p>GET films/</p>
+            <p><a href="https://41f-node-api.cyclic.app/films">https://41f-node-api.cyclic.app/films</a></p>
+            <p>
+                Paramètres possibles : orderBy (pour trier les films), orderDirection (pour définir l'ordre de tri),
+                limit (pour limiter le nombre de films renvoyés).
+            </p>
+
+            <h3>Récupérer un film spécifique</h3>
+            <p>GET films/{id}</p>
+            <p><a href="https://41f-node-api.cyclic.app/films/{id}">https://41f-node-api.cyclic.app/films/{id}</a></p>
+            <p>Paramètre requis : id (l'identifiant du film à récupérer).</p>
+
+            <h3>Ajouter un nouveau film</h3>
+            <p>POST films/</p>
+            <p><a href="https://41f-node-api.cyclic.app/films">https://41f-node-api.cyclic.app/films</a></p>
+            <p>Paramètres requis : un objet film dans le corps de la requête.</p>
+
+            <h3>Modifier un film existant</h3>
+            <p>PUT /films/{id}</p>
+            <p><a href="https://41f-node-api.cyclic.app/films/{id}">https://41f-node-api.cyclic.app/films/{id}</a></p>
+            <p>
+                Paramètres requis : id (l'identifiant du film à modifier) et un objet film dans le corps de la requête.
+            </p>
+
+            <h3>Supprimer un film</h3>
+            <p>DELETE films/{id}</p>
+            <p><a href="https://41f-node-api.cyclic.app/films/{id}">https://41f-node-api.cyclic.app/films/{id}</a></p>
+            <p>Paramètre requis : id (l'identifiant du film à supprimer).</p>
+        </section>
+
+        <section>
+            <h2>Routes pour les utilisateurs</h2>
+
+            <h3>Récupérer la liste des utilisateurs</h3>
+            <p>GET /utilisateurs</p>
+            <p>
+                URL :
+                <a href="https://41f-node-api.cyclic.app/utilisateurs">https://41f-node-api.cyclic.app/utilisateurs</a>
+            </p>
+            <p>Cette route permet de récupérer la liste des utilisateurs.</p>
+            <p>Cette route est protégée. Il faut être connecté et avoir un jeton valide pour y accéder.</p>
+
+            <h3>Initialiser la base de données avec des données de test</h3>
+            <p>POST /utilisateurs/initialize</p>
+            <p>
+                URL :
+                <a href="https://41f-node-api.cyclic.app/utilisateurs/initialize"
+                    >https://41f-node-api.cyclic.app/utilisateurs/initialize</a
+                >
+            </p>
+            <p>Cette route permet d'initialiser la base de données avec des données de test.</p>
+
+            <h3>Inscription d'un nouvel utilisateur</h3>
+            <p>POST /inscription</p>
+            <p>
+                URL :
+                <a href="https://41f-node-api.cyclic.app/inscription">https://41f-node-api.cyclic.app/inscription</a>
+            </p>
+            <p>
+                Cette route permet de créer un nouvel utilisateur. Elle vérifie d'abord si l'email fourni est déjà
+                utilisé. Si ce n'est pas le cas, elle crée un nouvel utilisateur avec l'email et le mot de passe
+                fournis, puis renvoie les informations de l'utilisateur avec un jeton. Le jeton doit être utilisé pour
+                accéder aux routes protégées en passant le jeton dans le header de la requête avec l'attribut
+                Authorization. Ex: Authorization: Bearer {le jeton}
+            </p>
+
+            <h3>Connexion d'un utilisateur</h3>
+            <p>POST /connexion</p>
+            <p>
+                URL : <a href="https://41f-node-api.cyclic.app/connexion">https://41f-node-api.cyclic.app/connexion</a>
+            </p>
+            <p>
+                Cette route permet à un utilisateur de se connecter. Elle vérifie d'abord si l'email fourni existe dans
+                la base de données. Si c'est le cas, elle compare le mot de passe fourni avec le mot de passe hashé
+                stocké dans la base de données. Si les mots de passe correspondent, elle renvoie les informations de
+                l'utilisateur avec un jeton. Le jeton doit être utilisé pour accéder aux routes protégées en passant le
+                jeton dans le header de la requête avec l'attribut Authorization. Ex: Authorization: Bearer {le jeton}
+            </p>
+            <p>Pour tester: admin@email.com - 12345</p>
         </section>
     </body>
 </html>

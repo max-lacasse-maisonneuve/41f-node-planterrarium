@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // ===== ROUTES
 // Toutes les routes non statiques doivent être définies après les middlewares
+app.use("/films", require("./routes/films.js"));
 app.use("/plantes", require("./routes/plantes.js"));
 app.use("/utilisateurs", require("./routes/utilisateurs.js"));
 

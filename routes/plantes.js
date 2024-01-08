@@ -4,8 +4,8 @@ const db = require("../config/db.js");
 const auth = require("../middlewares/auth.js");
 
 /**
- * Cette route permet de récupérer la liste des plantes
  * @route GET /plantes
+ * @description Cette route permet de récupérer la liste des plantes
  */
 router.get("/", auth, async (req, res) => {
     try {
@@ -26,8 +26,8 @@ router.get("/", auth, async (req, res) => {
 });
 
 /**
- * Cette route permet de récupérer une plante
  * @route GET /plantes/{id}
+ * @description Cette route permet de récupérer une plante spécifique par son ID
  */
 router.get("/:id", async (req, res) => {
     try {
@@ -42,8 +42,8 @@ router.get("/:id", async (req, res) => {
 });
 
 /**
- * Cette route permet d'initialiser la base de données avec des données de test
  * @route POST /plantes/initialize
+ * @description Cette route permet d'initialiser la base de données avec des données de test
  */
 router.post("/initialize", async (req, res) => {
     const donneesTest = require("../data/donneesTest.js");
@@ -57,8 +57,8 @@ router.post("/initialize", async (req, res) => {
 });
 
 /**
- * Cette route permet de créer une plante
  * @route POST /plantes
+ * @description Cette route permet de créer une nouvelle plante
  */
 router.post("/", async (req, res) => {
     try {
@@ -74,8 +74,8 @@ router.post("/", async (req, res) => {
 });
 
 /**
- * Cette route permet de modifier une plante
  * @route PUT /plantes/{id}
+ * @description Cette route permet de modifier une plante spécifique par son ID
  */
 router.put("/:id", async (req, res) => {
     try {
@@ -89,8 +89,8 @@ router.put("/:id", async (req, res) => {
 });
 
 /**
- * Cette route permet de supprimer une plante
  * @route DELETE /plantes/{id}
+ * @description Cette route permet de supprimer une plante spécifique par son ID
  */
 router.delete("/:id", async (req, res) => {
     try {
@@ -102,4 +102,5 @@ router.delete("/:id", async (req, res) => {
         res.status(500).send(err);
     }
 });
+
 module.exports = router;
